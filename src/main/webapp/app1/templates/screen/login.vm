@@ -1,0 +1,27 @@
+<form action="$app1Link.setTarget("login")" method="post">
+	<input type="hidden" name="action" value="/login_action"/>
+	#set ($group = $form.login.defaultInstance)
+	<p>
+	Login
+	</p>
+	<p>
+	#if($errorMsg) $!errorMsg #end
+	</p>
+	<p>
+	userName:
+	<input type="text" name="$group.name.key" value="$!group.name.value"/>
+	<br />
+	#if (!$group.name.valid)
+		$group.name.message
+	#end
+	<br />
+	password:
+	<input type="password" name="$group.passwd.key" value="$!group.passwd.value"/>
+	<br />
+	#if (!$group.passwd.valid)
+		$group.passwd.message
+	#end
+	<br/>
+	<input type="submit" name="event_submit_do_check" value="query"/>
+	</p>
+</form>
